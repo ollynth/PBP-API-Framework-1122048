@@ -17,10 +17,10 @@ func main() {
 	v1 := Router.Group("/v1")
 	// Router.GET("/user", cntrl.GetUser)
 	{
-		v1.GET("/users/", cntrl.GetUser)
-		// v1.POST("/login/", controllers.Login)
-		// v1.PUT("/users/:id", controllers.UpdateUser)
-		// v1.POST("/users", controllers.PostUser)
+		v1.GET("/users", cntrl.GetUser)
+		v1.PUT("/users/update/:id", cntrl.UpdateUser)
+		v1.POST("/users", cntrl.InsertNewUser)
+		v1.DELETE("users/:id", cntrl.DeleteUser)
 	}
 
 	Router.Run(":8888")

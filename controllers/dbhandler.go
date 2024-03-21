@@ -22,7 +22,7 @@ func connect() *sql.DB {
 }
 
 // nyobain buat connection pake gin tp masih error
-// func connect() *gorp.DbMap {
+// func getDB() *gorp.DbMap {
 // 	db, err := sql.Open("mysql", "user:password@tcp(localhost:3306)/db_latpbp_gin_framework")
 // 	checkErr(err, "sql.Open failed")
 // 	dbmap := &gorp.DbMap{Db: db, Dialect: gorp.MySQLDialect{"InnoDB", "UTF8"}}
