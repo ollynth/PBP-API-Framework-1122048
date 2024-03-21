@@ -9,6 +9,7 @@ import (
 
 // buat print semua data user yang ada di tabel database
 func GetUser(c *gin.Context) {
+	dbmap := GetDBMap()
 	var user []m.Users
 	_, err := dbmap.Select(&user, "select * from users")
 	if err == nil {

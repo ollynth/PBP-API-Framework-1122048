@@ -17,3 +17,8 @@ type UsersResponse struct {
 	Message string  `json:"message"`
 	Data    []Users `json:"data"`
 }
+
+type GeneralResponse struct {
+	Status  int    `json:"status"`
+	Message string `json:"message"`
+}

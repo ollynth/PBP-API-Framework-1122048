@@ -11,6 +11,10 @@ import (
 
 var dbmap = connect()
 
+func GetDBMap() *gorp.DbMap {
+	return dbmap
+}
+
 func connect() *gorp.DbMap {
 	db, err := sql.Open("mysql", "user:password@tcp(localhost:3306)/db_latpbp_gin_framework")
 	checkErr(err, "sql.Open failed")
