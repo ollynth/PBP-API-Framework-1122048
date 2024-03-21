@@ -2,6 +2,7 @@ package controllers
 
 import (
 	m "latFramework/models"
+	"net/http"
 
 	"github.com/gin-gonic/gin"
 	_ "github.com/go-sql-driver/mysql"
@@ -11,12 +12,13 @@ import (
 func GetUser(c *gin.Context) {
 	dbmap := GetDBMap()
 	var user []m.Users
-	_, err := dbmap.Select(&user, "select * from users")
-	if err == nil {
-		c.JSON(200, user)
-	} else {
+	query := "SELECT * FROM users"
+	_, err := dbmap.Select(&user, query)
+	if err != nil {
 		c.JSON(404, gin.H{"error": "user not found"})
+		return
 	}
+	c.JSON(http.StatusOK, user)
 }
 
 // buat insert user baru
